@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { useQuery } from "@tanstack/react-query";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -32,11 +32,13 @@ export default function DashboardPage() {
     queryKey: ["/api/creators"],
   });
 
-  const { sendMessage, isConnected } = useWebSocket(currentCreatorId || "", (message) => {
+  const handleWebSocketMessage = useCallback((message: any) => {
     if (message.type === "message") {
       setMessages(prev => [...prev, message.message]);
     }
-  });
+  }, []);
+
+  const { sendMessage, isConnected } = useWebSocket(currentCreatorId || "", handleWebSocketMessage);
 
   const handleSendMessage = () => {
     if (!messageInput.trim() || !selectedCreator || !currentCreatorId) return;
@@ -65,7 +67,7 @@ export default function DashboardPage() {
           </DialogHeader>
           <div className="py-4">
             <p className="text-gray-600 mb-6">
-              Here's how to find and message potential collaboration partners. Let's get started!
+              Your personalized dashboard is ready! Browse curated collaboration opportunities, send partnership requests, and start building meaningful creator relationships that drive real growth.
             </p>
             <Button 
               className="w-full btn-primary"
@@ -84,9 +86,9 @@ export default function DashboardPage() {
           <div className="flex items-center justify-between">
             <div>
               <h1 className="text-2xl font-bold text-mm-neutral-800">
-                Collaboration Discovery Dashboard
+                Your Creator Network Hub
               </h1>
-              <p className="text-gray-600">Curated list of potential collaborators</p>
+              <p className="text-gray-600">Discover perfect collaboration partners matched to your niche and audience</p>
             </div>
             <div className="flex items-center space-x-4">
               <Button variant="outline" className="bg-mm-neutral-100 text-gray-700 hover:bg-gray-200">
@@ -113,7 +115,7 @@ export default function DashboardPage() {
               className="btn-primary px-8 py-4 w-full md:w-auto"
               data-testid="button-send-invite"
             >
-              Send Your First Collab Invite
+              Start Your First Partnership
             </Button>
           </div>
         </div>

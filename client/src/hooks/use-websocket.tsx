@@ -18,9 +18,15 @@ export function useWebSocket(
     const protocol = window.location.protocol === "https:" ? "wss:" : "ws:";
     const wsUrl = `${protocol}//${window.location.host}/ws`;
     
+    // Close existing connection if any
+    if (ws.current) {
+      ws.current.close();
+    }
+    
     ws.current = new WebSocket(wsUrl);
 
     ws.current.onopen = () => {
+      console.log('WebSocket connected for creator:', creatorId);
       setIsConnected(true);
       // Join room for this creator
       ws.current?.send(JSON.stringify({
@@ -39,6 +45,7 @@ export function useWebSocket(
     };
 
     ws.current.onclose = () => {
+      console.log('WebSocket disconnected');
       setIsConnected(false);
     };
 
@@ -48,9 +55,12 @@ export function useWebSocket(
     };
 
     return () => {
-      ws.current?.close();
+      if (ws.current) {
+        ws.current.close();
+        ws.current = null;
+      }
     };
-  }, [creatorId, onMessage]);
+  }, [creatorId]); // Removed onMessage from dependencies to prevent reconnections
 
   const sendMessage = useCallback((message: WebSocketMessage) => {
     if (ws.current?.readyState === WebSocket.OPEN) {
