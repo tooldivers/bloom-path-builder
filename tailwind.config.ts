@@ -52,7 +52,8 @@ export default {
           "5": "var(--chart-5)",
         },
         // MentionMates custom colors
-        "mm-primary": "#3B82F6",
+        "mm-primary": "#2563EB",
+        "mm-primary-dark": "#1D4ED8",
         "mm-coral": "#F87171",
         "mm-mint": "#10B981",
         "mm-neutral-50": "#FAFAFA",

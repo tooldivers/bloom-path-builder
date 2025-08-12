@@ -109,6 +109,10 @@ export class MemStorage implements IStorage {
     const creator: Creator = {
       ...insertCreator,
       id,
+      username: insertCreator.username || null,
+      bio: insertCreator.bio || null,
+      profileImage: insertCreator.profileImage || null,
+      audienceSize: insertCreator.audienceSize || 0,
       isActive: true,
       joinedAt: new Date(),
     };
@@ -141,6 +145,7 @@ export class MemStorage implements IStorage {
     const collaboration: Collaboration = {
       ...insertCollaboration,
       id,
+      message: insertCollaboration.message || null,
       status: "pending",
       createdAt: new Date(),
       updatedAt: new Date(),
@@ -183,7 +188,7 @@ export class MemStorage implements IStorage {
         (message.senderId === creator1Id && message.recipientId === creator2Id) ||
         (message.senderId === creator2Id && message.recipientId === creator1Id)
       )
-      .sort((a, b) => a.createdAt.getTime() - b.createdAt.getTime());
+      .sort((a, b) => (a.createdAt?.getTime() || 0) - (b.createdAt?.getTime() || 0));
   }
 
   async markMessageAsRead(id: string): Promise<void> {

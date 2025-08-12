@@ -2,48 +2,26 @@ import { useLocation } from "wouter";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { CheckCircle, Zap, MessageCircle, TrendingUp } from "lucide-react";
+import FloatingNav from "@/components/floating-nav";
 
 export default function LandingPage() {
   const [, setLocation] = useLocation();
 
   return (
     <div className="min-h-screen bg-mm-neutral-50">
-      {/* Navigation */}
-      <nav className="bg-white/80 backdrop-blur-sm border-b border-gray-100 sticky top-0 z-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center h-16">
-            <div className="flex items-center space-x-2">
-              <div className="w-8 h-8 bg-mm-primary rounded-lg flex items-center justify-center">
-                <span className="text-white font-bold text-sm">M</span>
-              </div>
-              <span className="text-xl font-semibold text-mm-neutral-800">MentionMates</span>
-            </div>
-            <div className="hidden md:flex items-center space-x-8">
-              <a href="#how-it-works" className="text-gray-600 hover:text-mm-primary transition-colors">How it Works</a>
-              <a href="#success-stories" className="text-gray-600 hover:text-mm-primary transition-colors">Success Stories</a>
-              <Button variant="ghost" className="text-gray-600 hover:text-mm-primary">Sign In</Button>
-              <Button 
-                className="btn-primary"
-                onClick={() => setLocation("/onboarding")}
-                data-testid="button-get-started"
-              >
-                Get Started
-              </Button>
-            </div>
-          </div>
-        </div>
-      </nav>
+      {/* Modern Floating Navigation */}
+      <FloatingNav onGetStarted={() => setLocation("/onboarding")} />
 
       {/* Hero Section */}
-      <section className="relative overflow-hidden">
+      <section id="hero" className="relative overflow-hidden pt-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
             <div className="animate-fade-in">
-              <h1 className="text-4xl lg:text-5xl font-bold text-mm-neutral-800 leading-tight mb-6">
+              <h1 className="text-3xl lg:text-4xl font-bold text-mm-neutral-800 leading-tight mb-6">
                 Grow Your Followers Without Ads — 
-                <span className="text-mm-primary"> By Teaming Up With Other Creators</span>
+                <span className="text-mm-primary-dark"> By Teaming Up With Other Creators</span>
               </h1>
-              <p className="text-xl text-gray-600 mb-8 leading-relaxed">
+              <p className="text-lg text-gray-600 mb-8 leading-relaxed">
                 Find the perfect collaboration partner in minutes. Swap audiences. Grow together.
               </p>
               <div className="mb-8">
@@ -61,24 +39,24 @@ export default function LandingPage() {
             </div>
             
             <div className="relative animate-slide-up">
-              <div className="relative bg-gradient-to-br from-blue-50 to-orange-50 rounded-2xl p-8">
-                <div className="flex items-center justify-center space-x-4 mb-6">
+              <div className="relative bg-gradient-to-br from-blue-50 to-orange-50 rounded-3xl p-8 h-96 hero-image-hover animate-hero-float">
+                <div className="flex items-center justify-center space-x-6 mb-8">
                   {/* Creator 1 */}
                   <div className="flex flex-col items-center">
                     <img 
                       src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&h=150" 
                       alt="Male creator collaborating" 
-                      className="w-16 h-16 rounded-full object-cover border-4 border-white shadow-lg" 
+                      className="w-20 h-20 rounded-full object-cover border-4 border-white shadow-lg" 
                     />
-                    <div className="mt-2 text-center">
+                    <div className="mt-3 text-center">
                       <p className="text-sm font-medium">TechGuru</p>
                       <p className="text-xs text-gray-500">5.8K followers</p>
                     </div>
                   </div>
                   
                   {/* Handshake icon */}
-                  <div className="bg-white rounded-full p-3 shadow-lg animate-bounce-gentle">
-                    <MessageCircle className="w-6 h-6 text-mm-primary" />
+                  <div className="bg-white rounded-full p-4 shadow-lg animate-bounce-gentle">
+                    <MessageCircle className="w-8 h-8 text-mm-primary" />
                   </div>
                   
                   {/* Creator 2 */}
@@ -86,9 +64,9 @@ export default function LandingPage() {
                     <img 
                       src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&h=150" 
                       alt="Female creator collaborating" 
-                      className="w-16 h-16 rounded-full object-cover border-4 border-white shadow-lg" 
+                      className="w-20 h-20 rounded-full object-cover border-4 border-white shadow-lg" 
                     />
-                    <div className="mt-2 text-center">
+                    <div className="mt-3 text-center">
                       <p className="text-sm font-medium">LinaFit</p>
                       <p className="text-xs text-gray-500">4.2K followers</p>
                     </div>
@@ -96,12 +74,12 @@ export default function LandingPage() {
                 </div>
                 
                 {/* Growth stat */}
-                <div className="bg-white rounded-lg p-4 text-center shadow-sm">
+                <div className="bg-white rounded-xl p-6 text-center shadow-lg">
                   <div className="flex items-center justify-center space-x-2 text-mm-mint">
-                    <TrendingUp className="w-4 h-4" />
-                    <span className="text-lg font-semibold">+27%</span>
+                    <TrendingUp className="w-5 h-5" />
+                    <span className="text-2xl font-semibold">+27%</span>
                   </div>
-                  <p className="text-xs text-gray-500">reach in first month</p>
+                  <p className="text-sm text-gray-500">reach in first month</p>
                 </div>
               </div>
             </div>
@@ -155,48 +133,95 @@ export default function LandingPage() {
       {/* Success Stories */}
       <section id="success-stories" className="bg-mm-neutral-50 py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <Card className="bg-white card-hover border-0">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl lg:text-4xl font-bold text-mm-neutral-800 mb-4">
+              Real Creators, Real Results
+            </h2>
+            <p className="text-lg text-gray-600">See how our community is growing together</p>
+          </div>
+          
+          <div className="grid lg:grid-cols-2 gap-8 items-start">
+            {/* First Card - Staggered Up */}
+            <Card className="bg-white card-hover border-0 shadow-lg staggered-up">
               <CardContent className="p-8">
                 <div className="flex items-center space-x-4 mb-6">
                   <img 
                     src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&h=100" 
                     alt="Successful female fitness creator" 
-                    className="w-16 h-16 rounded-full object-cover" 
+                    className="w-16 h-16 rounded-full object-cover border-2 border-mm-mint" 
                   />
                   <div>
                     <h4 className="font-semibold text-mm-neutral-800">@Lina_Fit</h4>
                     <p className="text-gray-600">Fitness • Instagram</p>
                   </div>
                 </div>
-                <p className="text-gray-700 mb-4">
-                  "gained <span className="font-semibold text-mm-mint">580 followers</span> in 2 weeks after her first MentionMates collab."
+                <p className="text-gray-700 mb-6 text-lg leading-relaxed">
+                  "gained <span className="font-semibold text-mm-mint text-xl">580 followers</span> in 2 weeks after her first MentionMates collab."
                 </p>
+                <div className="bg-mm-mint/10 rounded-lg p-4">
+                  <div className="flex items-center justify-between">
+                    <span className="text-sm text-gray-600">Growth Rate</span>
+                    <span className="font-semibold text-mm-mint">+38%</span>
+                  </div>
+                </div>
               </CardContent>
             </Card>
             
-            <Card className="bg-white card-hover border-0">
+            {/* Second Card - Staggered Down */}
+            <Card className="bg-white card-hover border-0 shadow-lg staggered-down">
               <CardContent className="p-8">
                 <div className="mb-6">
-                  <p className="text-sm text-gray-600 mb-2">@JasminBlog</p>
-                  <div className="bg-gradient-to-r from-mm-primary/10 to-mm-mint/10 rounded-lg p-4">
-                    <svg viewBox="0 0 400 200" className="w-full h-24">
+                  <div className="flex items-center space-x-4 mb-4">
+                    <img 
+                      src="https://images.unsplash.com/photo-1534751516642-a1af1ef26a56?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&h=100" 
+                      alt="Fashion blogger creator" 
+                      className="w-16 h-16 rounded-full object-cover border-2 border-mm-primary" 
+                    />
+                    <div>
+                      <h4 className="font-semibold text-mm-neutral-800">@JasminBlog</h4>
+                      <p className="text-gray-600">Fashion • TikTok</p>
+                    </div>
+                  </div>
+                  <div className="bg-gradient-to-r from-mm-primary/10 to-mm-mint/10 rounded-xl p-6">
+                    <svg viewBox="0 0 400 120" className="w-full h-20">
                       <polyline 
-                        points="20,150 60,120 100,100 140,80 180,60 220,40 260,30 300,25 340,20 380,15" 
+                        points="20,100 60,80 100,65 140,50 180,35 220,25 260,20 300,15 340,10 380,5" 
                         fill="none" 
-                        stroke="#3B82F6" 
-                        strokeWidth="3" 
+                        stroke="#2563EB" 
+                        strokeWidth="4" 
                         strokeLinecap="round"
                       />
-                      <circle cx="380" cy="15" r="4" fill="#3B82F6"/>
+                      <circle cx="380" cy="5" r="6" fill="#2563EB"/>
                     </svg>
                   </div>
                 </div>
-                <p className="text-gray-700">
-                  "JasminBlog's reach increased by <span className="font-semibold text-mm-primary">98%</span> from her MentionMates collab."
+                <p className="text-gray-700 text-lg leading-relaxed">
+                  "JasminBlog's reach increased by <span className="font-semibold text-mm-primary text-xl">98%</span> from her MentionMates collab."
                 </p>
               </CardContent>
             </Card>
+          </div>
+          
+          {/* Additional Statistics */}
+          <div className="mt-16 grid md:grid-cols-3 gap-8">
+            <div className="text-center">
+              <div className="bg-white rounded-2xl p-6 shadow-sm">
+                <div className="text-3xl font-bold text-mm-primary mb-2">2.3K+</div>
+                <p className="text-gray-600">Active Creators</p>
+              </div>
+            </div>
+            <div className="text-center">
+              <div className="bg-white rounded-2xl p-6 shadow-sm">
+                <div className="text-3xl font-bold text-mm-mint mb-2">45%</div>
+                <p className="text-gray-600">Avg. Growth Rate</p>
+              </div>
+            </div>
+            <div className="text-center">
+              <div className="bg-white rounded-2xl p-6 shadow-sm">
+                <div className="text-3xl font-bold text-mm-coral mb-2">1,200+</div>
+                <p className="text-gray-600">Successful Collabs</p>
+              </div>
+            </div>
           </div>
         </div>
       </section>

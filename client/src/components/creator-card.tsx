@@ -13,7 +13,8 @@ interface CreatorCardProps {
 export default function CreatorCard({ creator, onMessage, isCurrentUser }: CreatorCardProps) {
   if (isCurrentUser) return null;
 
-  const formatFollowerCount = (count: number) => {
+  const formatFollowerCount = (count: number | null) => {
+    if (!count) return "0";
     if (count >= 1000) {
       return `${(count / 1000).toFixed(1)}K`;
     }
