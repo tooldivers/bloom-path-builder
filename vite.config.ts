@@ -27,15 +27,14 @@ export default defineConfig(async ({ mode }) => ({
   },
   root: ".",
   build: {
-    outDir: path.resolve(import.meta.dirname, "dist/public"),
+    outDir: "dist",
     emptyOutDir: true,
   },
   server: {
     host: "::",
     port: 8080,
     fs: {
-      strict: true,
-      deny: ["**/.*"],
+      strict: false,
     },
   },
 }));
