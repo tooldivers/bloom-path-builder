@@ -18,8 +18,8 @@ export default function LandingPage() {
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <div className="animate-fade-in">
               <h1 className="text-3xl lg:text-4xl font-bold text-mm-neutral-800 leading-tight mb-6">
-                Skip Expensive Ads — 
-                <span className="text-mm-primary-dark">Grow Through Creator Collaborations</span>
+                Grow Your Followers — 
+                <span className="text-mm-primary-dark">Without Ads - By Teaming Up</span>
               </h1>
               <p className="text-lg text-gray-600 mb-8 leading-relaxed">
                 Connect with like-minded creators in your niche. Cross-promote content. Build authentic audiences together. Get your first collaboration partner in under 24 hours.
