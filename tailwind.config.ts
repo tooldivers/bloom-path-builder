@@ -2,7 +2,7 @@ import type { Config } from "tailwindcss";
 
 export default {
   darkMode: ["class"],
-  content: ["./client/index.html", "./client/src/**/*.{js,jsx,ts,tsx}"],
+  content: ["./index.html", "./src/**/*.{js,jsx,ts,tsx}"],
   theme: {
     extend: {
       borderRadius: {
@@ -51,14 +51,14 @@ export default {
           "4": "var(--chart-4)",
           "5": "var(--chart-5)",
         },
-        // MentionMates custom colors
-        "mm-primary": "#2563EB",
-        "mm-primary-dark": "#1D4ED8",
-        "mm-coral": "#F87171",
-        "mm-mint": "#10B981",
-        "mm-neutral-50": "#FAFAFA",
-        "mm-neutral-100": "#F8FAFC",
-        "mm-neutral-800": "#1E293B",
+        // MentionMates custom colors using HSL from CSS variables
+        "mm-primary": "hsl(var(--mm-primary))",
+        "mm-primary-dark": "hsl(var(--mm-primary-dark))",
+        "mm-coral": "hsl(var(--mm-coral))",
+        "mm-mint": "hsl(var(--mm-mint))",
+        "mm-neutral-50": "hsl(var(--mm-neutral-50))",
+        "mm-neutral-100": "hsl(var(--mm-neutral-100))",
+        "mm-neutral-800": "hsl(var(--mm-neutral-800))",
       },
       fontFamily: {
         sans: ["Inter", "system-ui", "sans-serif"],
