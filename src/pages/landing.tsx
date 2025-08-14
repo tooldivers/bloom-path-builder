@@ -299,40 +299,147 @@ export default function LandingPage() {
         </div>
       </section>
 
-      {/* Early Adopters CTA */}
+      {/* Early Adopters CTA - Green Footer matching uploaded design */}
       <section className="bg-mm-primary py-20">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl lg:text-4xl font-bold text-white mb-6">
             We're Matching Our First 100 Creators — Don't Miss Out
           </h2>
-          <div className="bg-white/10 rounded-2xl p-8 mb-8">
-            <h3 className="text-xl font-semibold text-white mb-6">Early users get:</h3>
-            <div className="grid md:grid-cols-3 gap-6 text-white">
-              <div className="flex items-center space-x-2">
-                <CheckCircle className="w-5 h-5 text-mm-mint" />
-                <span>Priority matching</span>
-              </div>
-              <div className="flex items-center space-x-2">
-                <CheckCircle className="w-5 h-5 text-mm-mint" />
-                <span>Featured showcase</span>
-              </div>
-              <div className="flex items-center space-x-2">
-                <CheckCircle className="w-5 h-5 text-mm-mint" />
-                <span>30% lifetime discount</span>
-              </div>
+          <div className="flex justify-center items-center space-x-8 mb-8 text-white">
+            <div className="flex items-center space-x-2">
+              <CheckCircle className="w-5 h-5" />
+              <span>Priority matching</span>
+            </div>
+            <div className="flex items-center space-x-2">
+              <CheckCircle className="w-5 h-5" />
+              <span>Team collaboration</span>
+            </div>
+            <div className="flex items-center space-x-2">
+              <CheckCircle className="w-5 h-5" />
+              <span>VIP access to events</span>
             </div>
           </div>
-          <Button 
-            size="lg"
-            className="bg-white text-mm-primary hover:bg-gray-50 px-8 py-4 text-lg font-semibold"
-            onClick={() => setLocation("/onboarding")}
-            data-testid="button-join-early"
-          >
-            Join Free & Get My First Match
-            <TrendingUp className="ml-2 h-5 w-5" />
-          </Button>
+          <div className="space-y-4 mb-8">
+            <Button 
+              size="lg"
+              className="bg-white text-mm-primary hover:bg-gray-100 font-semibold px-8 py-4 text-lg rounded-xl"
+              onClick={() => setLocation("/onboarding")}
+            >
+              Join now and
+            </Button>
+            <Button 
+              size="lg"
+              className="bg-mm-primary-dark text-white hover:bg-mm-primary font-semibold px-8 py-4 text-lg rounded-xl border-2 border-white/20"
+              onClick={() => setLocation("/onboarding")}
+            >
+              Get free 1:1 onboarding
+            </Button>
+          </div>
+          <p className="text-white/80 text-sm">No credit card required. Best collaboration in 24 hours.</p>
+          <p className="text-white/60 text-xs mt-2">27 creator profiles live for 18 hours</p>
         </div>
       </section>
+
+      {/* FAQ Section matching uploaded design */}
+      <section className="bg-white py-20">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl lg:text-4xl font-bold text-mm-neutral-800 mb-4">
+              Frequently Asked Questions
+            </h2>
+            <p className="text-lg text-gray-600">Everything you need to know about growing with CollabMates</p>
+          </div>
+          
+          <div className="space-y-4">
+            {[
+              {
+                question: "How does the matching algorithm work?",
+                answer: "Our AI analyzes your niche, audience demographics, engagement rates, and collaboration preferences to find creators with complementary audiences."
+              },
+              {
+                question: "Is there a cost to join the platform?",
+                answer: "Joining is completely free. We only charge a small fee when you successfully complete a collaboration through our platform."
+              },
+              {
+                question: "How long does it take to find a collaboration partner?",
+                answer: "Most creators find their first match within 24 hours. Our algorithm works 24/7 to find the best partnerships for sustainable growth."
+              },
+              {
+                question: "What types of collaborations can I do?",
+                answer: "Content swaps, joint livestreams, cross-promotion, product collaborations, and more. You define what type of partnership you're looking for."
+              },
+              {
+                question: "Can I collaborate with creators outside my niche?",
+                answer: "Absolutely! Some of the most successful collaborations happen between creators in complementary niches that share similar audience interests."
+              },
+              {
+                question: "How do you ensure the quality of creators on the platform?",
+                answer: "We verify all creator profiles and use engagement quality metrics, not just follower count, to ensure authentic partnerships."
+              }
+            ].map((faq, index) => (
+              <div key={index} className="bg-gray-50 rounded-xl p-6 hover:bg-gray-100 transition-colors">
+                <h3 className="font-semibold text-mm-neutral-800 mb-2">{faq.question}</h3>
+                <p className="text-gray-600">{faq.answer}</p>
+              </div>
+            ))}
+          </div>
+          
+          <div className="text-center mt-12">
+            <p className="text-gray-600 mb-4">Still have questions? We're here to help.</p>
+            <Button 
+              variant="outline" 
+              className="border-mm-primary text-mm-primary hover:bg-mm-primary hover:text-white"
+            >
+              Contact our support team
+            </Button>
+          </div>
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer className="bg-mm-neutral-800 text-white py-16">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid md:grid-cols-4 gap-8">
+            <div>
+              <h3 className="font-bold text-xl mb-4">CollabMates</h3>
+              <p className="text-gray-400 mb-4">
+                Connecting creators worldwide for authentic growth and meaningful collaborations.
+              </p>
+            </div>
+            <div>
+              <h4 className="font-semibold mb-4">Product</h4>
+              <div className="space-y-2 text-gray-400">
+                <p>How it Works</p>
+                <p>Pricing</p>
+                <p>Success Stories</p>
+                <p>API</p>
+              </div>
+            </div>
+            <div>
+              <h4 className="font-semibold mb-4">Resources</h4>
+              <div className="space-y-2 text-gray-400">
+                <p>Creator Guide</p>
+                <p>Community</p>
+                <p>Support</p>
+                <p>Help Center</p>
+              </div>
+            </div>
+            <div>
+              <h4 className="font-semibold mb-4">Stay Updated</h4>
+              <p className="text-gray-400 mb-4">Get the latest news and updates about creator growth.</p>
+              <Button 
+                className="bg-mm-primary hover:bg-mm-primary-dark text-white"
+                onClick={() => setLocation("/onboarding")}
+              >
+                Subscribe
+              </Button>
+            </div>
+          </div>
+          <div className="border-t border-gray-700 mt-12 pt-8 text-center text-gray-400">
+            <p>&copy; 2024 CollabMates. All rights reserved.</p>
+          </div>
+        </div>
+      </footer>
     </div>
   );
 }

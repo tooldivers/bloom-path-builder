@@ -30,14 +30,15 @@
   --chart-5: hsl(27 87% 67%);
   --radius: 0.75rem;
   
-  /* Custom MentionMates colors */
-  --mm-primary: hsl(217 91% 45%);
-  --mm-primary-dark: hsl(217 91% 35%);
-  --mm-coral: hsl(0 84.2% 69.8%);
-  --mm-mint: hsl(142.1 76.2% 36.3%);
+  /* Custom MentionMates colors - matching uploaded design */
+  --mm-primary: hsl(158 64% 52%); /* Teal green from images */
+  --mm-primary-dark: hsl(158 64% 42%);
+  --mm-coral: hsl(14 91% 69%); /* Orange accent */
+  --mm-mint: hsl(158 64% 52%); /* Same as primary for consistency */
   --mm-neutral-50: hsl(0 0% 98%);
   --mm-neutral-100: hsl(210 20% 98%);
   --mm-neutral-800: hsl(218 11% 15%);
+  --mm-green-footer: hsl(158 64% 42%); /* For the green footer section */
   
   /* Animations */
   --mm-transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
