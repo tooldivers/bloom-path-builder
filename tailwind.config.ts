@@ -51,14 +51,14 @@ export default {
           "4": "var(--chart-4)",
           "5": "var(--chart-5)",
         },
-        // MentionMates custom colors using HSL from CSS variables
-        "mm-primary": "hsl(var(--mm-primary))",
-        "mm-primary-dark": "hsl(var(--mm-primary-dark))",
-        "mm-coral": "hsl(var(--mm-coral))",
-        "mm-mint": "hsl(var(--mm-mint))",
-        "mm-neutral-50": "hsl(var(--mm-neutral-50))",
-        "mm-neutral-100": "hsl(var(--mm-neutral-100))",
-        "mm-neutral-800": "hsl(var(--mm-neutral-800))",
+        // MentionMates custom colors using CSS variables directly
+        "mm-primary": "var(--mm-primary)",
+        "mm-primary-dark": "var(--mm-primary-dark)",
+        "mm-coral": "var(--mm-coral)",
+        "mm-mint": "var(--mm-mint)",
+        "mm-neutral-50": "var(--mm-neutral-50)",
+        "mm-neutral-100": "var(--mm-neutral-100)",
+        "mm-neutral-800": "var(--mm-neutral-800)",
       },
       fontFamily: {
         sans: ["Inter", "system-ui", "sans-serif"],

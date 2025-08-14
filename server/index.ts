@@ -1,11 +1,16 @@
 import express from "express";
 import { createServer } from "vite";
 import path from "path";
+import { registerRoutes } from "./routes";
 
 const app = express();
+app.use(express.json());
 
 async function startServer() {
   try {
+    // Register API routes first
+    const httpServer = await registerRoutes(app);
+    
     // Create Vite server in middleware mode
     const vite = await createServer({
       server: { middlewareMode: true },
@@ -18,7 +23,7 @@ async function startServer() {
 
     const port = parseInt(process.env.PORT || '8080', 10);
     
-    app.listen(port, '0.0.0.0', () => {
+    httpServer.listen(port, '0.0.0.0', () => {
       console.log(`Server running on port ${port}`);
     });
   } catch (error) {
